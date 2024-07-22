@@ -1,0 +1,34 @@
+{% extends 'shop/layouts/main.html' %}
+
+{% block title %}
+    Wishlist | Flipkart
+{% endblock title %}
+
+{% block content %}
+    <section class="bg-light py-4 my-5" style="min-height: 450px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="mb-3">Wishlist</h4>
+                    <hr style="border-color: #b8bfc2;">
+                </div>
+                <table>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Unit</th>
+                        <th>Remove</th>
+                    </tr>
+                    {% for item in fav %}
+                        <tr>
+                            <td> <img src="{{item.product.product_image.url}}" alt="{{item.products.name}}" height="75px"> </td>
+                            <td> {{item.product.name}} </td>
+                            <td> Rs.{{item.product.selling_price | stringformat:'d'}} </td>
+                            <td> <a href="{% url 'removefav' item.id %}" onclick="return confirm('Are You sure to Remove ?')" class="btn btn-danger btn-sm" style="border-radius: 7px;"> <i class="fa fa-trash"></i> Remove </a> </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
