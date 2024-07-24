@@ -37,10 +37,10 @@ a {
 }
 
 .hot {
-    margin-top: 100px;
+    margin-top: 10px;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -20;
     text-align: center;
     font-weight: bold;
     background-color: black;
