@@ -10,9 +10,17 @@
             <a class="nav-link" aria-current="page" href="{% url 'home' %}"> <i class="fa fa-home"></i> Home</a>
           </li>
           {% if user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link" href="#"> <i class="fa fa-users"></i> {{request.user}}</a>
-            </li>
+          <div class="user">
+              <li class="nav-item">
+                <a id="user" class="nav-link" href="#"> <i class="fa fa-user"></i> {{request.user}}  <span onclick="fun()" id="span_tag"> <i class="fa-solid fa-chevron-down"></i> </span> </a>
+              </li>
+              <div class="hide-user">
+                  <a class="nav-link" href="#"> <i class="fa fa-user"></i> My Profile </a> 
+                  <a class="nav-link" href="#"> <i class="fa-solid fa-cube"></i> Orders </a>
+                  <a class="nav-link" href="{% url 'wish' %}"> <i class="fa fa-heart"></i> Wishlist</a>
+              </div>
+            </div>
+
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logout' %}"> <i class="fa fa-sign-out"></i> Logout</a>
             </li>
@@ -31,9 +39,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'cart' %}"> <i class="fa fa-shopping-cart"></i> Cart</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="{% url 'wish' %}"> <i class="fa fa-heart"></i> Wishlist</a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
