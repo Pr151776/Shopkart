@@ -5,7 +5,9 @@ from .forms import CustomUserForm
 from django.contrib.auth import authenticate,login,logout
 from django.http import JsonResponse
 import json
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='login')
 def home(request):
     products = Product.objects.filter(trending=1)
     return render(request,"shop/index.html",{'products':products})
